@@ -1,0 +1,28 @@
+
+
+exact problem description and usage.
+====================================
+
+Classsical chess game played in command line.
+All cpesial moves is fully supported(e.g. Casling, EnPassant...).
+Program gives an opportunity to save/load the game from file '.txt'.
+Pieces and colors denote characters see match list below:
++------+-------------+
+| char | description |
++------+-------------|
+|  W   |    While    |
+|  B   |    Black    |
+|  P   |    Pawn     |
+|  N   |    Knight   |
+|  B   |    Bishop   |
+|  R   |    Rook     |
+|  Q   |    Queen    |
+|  K   |    King     |
++------+-------------+
+Column is denoted as number(not a letter).
+Moves is done using coordinates 'RowColumn' without any delimeter.
+To save the game just print 'save' whenever you want.
+Save files are located in directory from where program was launced.
+Save files are named according format: 'Game_i' where i greater or equal 1,
+ depending on how many safe files already exists in directory.
+To load the game, run it with name of load file as an argument.

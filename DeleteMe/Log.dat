@@ -1,0 +1,99 @@
+
+Hints & notes for myself.
+=========================
+
+Special moves.
+--------------
+
+Castling      [+/-]  Ommited check of fields between, whether it is under atack or nor.
+                     If piece go somethere and back to start position, casling is valid still
+Dowble paw    [+]    Done
+En-Passant    [+/-]  Ommited rule of immediate move after enemy DowblePawnMove.
+PawnPromotion [+]    Done(but in main 'CChess' class)
+
+TODO LIST
+---------
+
+Memory.
+	----	En-Passant.
+	----	Castling.
+	DONE	Erroneous seting 'used' to true.
+	DONE	Makefile(split to separete headers firstly).
+	DONE	Documantation.
+	DONE	If I write 'safe' begin move scan loop again.
+	DONE	Finish saving.
+	DONE	Invalid input in Pawn Promotion.
+	DONE	Check form of SafeFile.
+
+NOTES
+-----
+
+add const quntifiers!!!!!!!!!
+DONE
+
+.hpp definision of class + tydef,defie relaited to such class
+.cpp methods of this class. include appropriate hpp.
+.lib
++include all libs(string/vector) whereever you use something from it
+make one .hpp and one .cpp for 7 class base and inherited
+main in .cpp include there only such .hpp which is used in main. (CChess)
+IF ADN EF [const]  (if not defiened)
+DEFINE [const]
+...[file]
+ENDIF
+#include <guard>;
+
+Ok Ive solved 3 error described above in a vary unoffician way. I delete 'used' var
+at all. instead i use constant coordinates, thus if for example king move up and down,
+it is still possible to make Castling for him. I thing have strictly defiend error instead
+undefiend behaviour(as it was) is better. Old file with using 'used' was compiled on ProgTest,
+could be found there. Time: 2017-06-09 16:33:14. Moreover if I deside get back used var
+i need to parse it in safe file!
+
+In SaveFile i checked only amount of Kings
+
+I thing Seg.Fault. gonna heppent if in SafeFile someone delete King.
+SOLVED
+
+Solve memory stuff(use shared/unique ptr)
+
+Make safe/load game. Ok seems like I did it, but still it works only
+if I open SafeFile manualy, wtf, file format is not recognized!?
+
+Form of the load file: '[cordinate][COLOR][PIECE]\n'. E.g. 41WP
+                                                           15WK
+                                                           54BQ
+
+In safe file coordinates is written in obvious way[1-9]. Do not forget
+to increase row/col by one when saving and decrease when read!!!
+
+Reorganize scaning of move into strings(not int), cause user should
+have the opportunity to type 'Safe' or somewhat similar, you(I) get me.
+DONE!
+
+By some reason left black Pawn can not do DowblePawnMove. SOLVED
+
+Because program have many inner/invisible checks(e.g InCheck, 
+IsPossibleMoves...), var 'used' can be set to true due to one of it.
+I thing previously noticed mistake is a consiquent.
+
+Invalid input parsling. DONE!
+
+Actually i can make vector 'PiecesPossitions' in such curious form:
+vector<pair< pair<int,int> , pair<char,char> >> but, eventually, I
+desided just make vactor<string>, i thing in is more convenient.
+
+Gush... cant realize how make Board initialization in its constuctor...
+may need to use two of it, like one (called automaticaly) witout 
+agruments and othe with 'PiecesPossitions', but then 2 board will be
+init... hm. Ok, ive made initialization in sepate CBoard method called manualy.
+
+Should i check validity of SafeFile... I think no. At least for now.
+
+The way to SafeFile strictly defiend, so do NOT forget to change it
+when submit.
+
+omg, i cant check all files in GameSaves dir to finout the new name for it.
+Ok, for now, I will make one safe file in which user can safe game.
+it will be rewriten if something as already there or created if its doest exis
+manualy you coud parse any valid file, it will wokr.
