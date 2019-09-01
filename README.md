@@ -9,6 +9,6 @@ src - program code,
 examples - samples of games to be loaded and tested,
 DeleteMe - extra directory which was used while developing for Back Ups and log,
 MakeFile - bash command templates to make program usage easie,
-prohlaseni.txt - (declaration, Czech) personal stemp file,
-zadani.txt - (task, Czech) brief problem description,
+prohlaseni.txt - copyright (Czech),
+zadani.txt - brief problem description (Czech),
 Doxyfile - configuration file for doxygen.
