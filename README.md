@@ -1,5 +1,5 @@
 # Semestral_Project
-11 06 2016
+C++ language. 11 06 2016
 
 This work represents Semestral Project due to the end of 2-semester study in the Czech Technical University in Prague.
 Command line oriented 2-side chess game. Devoloped on Ubuntu OS using 'g++' compiler of 4.8.4 version.
